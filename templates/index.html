@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <style>
+        .container {
+<!--        display: flex;-->
+<!--        flex-wrap: nowrap;-->
+<!--        justify-content:  space-between;-->
+
+        }
+        .image {
+            width: 300px;
+            height: 300px;
+            }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Products</h1>
+    <hr>
+{% for product in products reversed %}
+    <a href="{% url 'product' product.id %}"><img class="image" src="{{ product.image.url }}"></a>
+<h3><a href="{% url 'product' product.id %}">{{ product.title }}</a> - Ksh.{{ product.price }}</h3>
+{% endfor %}
+</div>
+
+</body>
+</html>

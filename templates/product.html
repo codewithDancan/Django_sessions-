@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.title }}</title>
+    <style>
+        .container {
+            display: inline-block;
+            align-items: center;
+            }
+        .main_image {
+            width: 300px;
+            height: 300px;
+            }
+
+        .related_image {
+            width: 200px;
+            height: 180px;
+            }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>{{ product.title }}</h1>
+    <img class="main_image" src="{{ product.image.url }}">
+    <p>{{ product.description }}</p>
+    <h3>Recently Viewed</h3>
+    <div class="related">
+        {% for recent_product in recently_viewed_products reversed %}
+        <img class="related_image" src="{{ recent_product.image.url }}"alt="">
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>
